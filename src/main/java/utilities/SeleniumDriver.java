@@ -3,7 +3,9 @@ package utilities;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -13,7 +15,7 @@ public class SeleniumDriver {
 	private static SeleniumDriver seleniumdriver;
 	private static WebDriver driver;
 	private static WebDriverWait wait;
-	
+	public static Select select;
 	public static final int TIMEOUT=30;
 	public static final int PAGE_LOAD_TIMEOUT=50;
 	
@@ -35,6 +37,12 @@ public class SeleniumDriver {
 	
 	public static WebDriver getDriver() {
 		return driver;
+	}
+	
+	public static void DropdownSelect(WebElement locator, String text) {
+		select = new Select(locator);
+		select.selectByVisibleText(text);
+		
 	}
 	
 	public static void setDriver() {

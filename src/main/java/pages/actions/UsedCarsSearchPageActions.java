@@ -1,7 +1,6 @@
 package pages.actions;
 
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 import pages.locators.UsedCarsSearchPageLocators;
 import utilities.SeleniumDriver;
@@ -9,31 +8,26 @@ import utilities.SeleniumDriver;
 public class UsedCarsSearchPageActions {
 	
 	UsedCarsSearchPageLocators usedCarsSearchPageLocators;
-	Select select;
 	
 	public UsedCarsSearchPageActions() {
 		this.usedCarsSearchPageLocators=new UsedCarsSearchPageLocators();
 		PageFactory.initElements(SeleniumDriver.getDriver(), usedCarsSearchPageLocators);
 	}
 	
-	public void selectMake(String make) {
-		select = new Select(usedCarsSearchPageLocators.selectMake);
-		select.selectByVisibleText(make);
+	public void selectMake(String make) {	
+		SeleniumDriver.DropdownSelect(usedCarsSearchPageLocators.selectMake, make);
 	}
 	
 	public void selectModel(String model) {
-		select = new Select(usedCarsSearchPageLocators.selectModel);
-		select.selectByVisibleText(model);
+		SeleniumDriver.DropdownSelect(usedCarsSearchPageLocators.selectModel, model);
 	}
 	
 	public void selectLocation(String location) {
-		select = new Select(usedCarsSearchPageLocators.selectState);
-		select.selectByVisibleText(location);
+		SeleniumDriver.DropdownSelect(usedCarsSearchPageLocators.selectState, location);
 	}
 	
 	public void selectPrice(String price) {
-		select = new Select(usedCarsSearchPageLocators.selectPrice);
-		select.selectByVisibleText(price);
+		SeleniumDriver.DropdownSelect(usedCarsSearchPageLocators.selectPrice, price);
 	}
 	
 	public void clickOnShowUsedCars() {
